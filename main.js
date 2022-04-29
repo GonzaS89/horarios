@@ -50,7 +50,6 @@ form1.addEventListener('click', function(){
       if(camino.value == 'porAld' && opcion1.disabled == false){
 
         
-
         const diasSemana = document.createElement('select');
 
         
@@ -82,6 +81,33 @@ form1.addEventListener('click', function(){
         form2.appendChild(diasSemana);
         body.appendChild(titulo3);
         body.appendChild(diasSemana);
+
+        diasSemana.addEventListener('click', function(){
+
+          let titulo4 = document.createElement('h2');
+
+          titulo4.textContent = '¿Qué horario buscas?';
+
+          if (diasSemana.value == 'lunesViernes' && opcionDia1.disabled == false){
+
+            const horariosFloAldSM1 = document.createElement('select');
+            horariosFloAldSM1.name = 'horariosFloAldSm1';
+            horariosFloAldSM1.id = 'horariosFloAldSm1';
+
+            const opcionHorario0 = document.createElement('option');
+            opcionHorario0.text = 'Selecciona un horario'
+            opcionHorario0.disabled = true;
+            opcionHorario0.selected = true;
+
+            const horarioFASM1 = document.createElement('option');
+
+            body.appendChild(titulo4);
+            horariosFloAldSM1.appendChild(opcionHorario0);
+            body.appendChild(horariosFloAldSM1);
+
+
+          }
+        })
 
 
         horariosAld.addEventListener('click', function(){
