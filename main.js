@@ -15,7 +15,7 @@ form1.addEventListener('click', function(){
     camino.name = 'camino';
     camino.id = 'camino';
     const opcion0 = document.createElement('option');
-    opcion0.text = 'Selecciona tu camino'
+    opcion0.text = 'Selecciona tú camino'
     opcion0.disabled = true;
     opcion0.selected = true;
     const opcion1 = document.createElement('option');
@@ -27,7 +27,7 @@ form1.addEventListener('click', function(){
     
 
 
-    titulo2.textContent = 'Elegi tu camino'
+    titulo2.textContent = '¿Por donde queres viajar?'
   
     camino.appendChild(opcion0);
     camino.appendChild(opcion1);
@@ -45,35 +45,44 @@ form1.addEventListener('click', function(){
 
       let titulo3 = document.createElement('h2');
 
-      titulo3.textContent = 'Elegi un horario'
+      titulo3.textContent = '¿En qué dia de la semana?'
 
       if(camino.value == 'porAld' && opcion1.disabled == false){
 
-        form2.appendChild(titulo3);
+        
 
-        const horariosAld = document.createElement('select');
+        const diasSemana = document.createElement('select');
 
         
-        horariosAld.name = 'horariosAld';
-        horariosAld.id = 'horariosAld';
+        diasSemana.name = 'diasSemana';
+        diasSemana.id = 'diasSemana';
 
-        const opcionAld0 =  document.createElement('option');
-        opcionAld0.text = 'Selecciona un horario'
-        opcionAld0.disabled = true;
-        opcionAld0.selected = true;
+        const opcionDia0 =  document.createElement('option');
+        opcionDia0.text = 'Selecciona una opcion'
+        opcionDia0.disabled = true;
+        opcionDia0.selected = true;
         
-        const opcionAld1 = document.createElement('option');
-        opcionAld1.value = 'opcionAld1';
-        opcionAld1.text = '06:00';
+        const opcionDia1 = document.createElement('option');
+        opcionDia1.value = 'lunesViernes';
+        opcionDia1.text = 'Lunes a Viernes';
 
-        const opcionAld2 = document.createElement('option');
-        opcionAld2.value = 'opcionAld2'
-        opcionAld2.text = '06:30'
+        const opcionDia2 = document.createElement('option');
+        opcionDia2.value = 'sabados'
+        opcionDia2.text = 'Sábados'
 
-        horariosAld.appendChild(opcionAld0);
-        horariosAld.appendChild(opcionAld1);
-        horariosAld.appendChild(opcionAld2);
-        form2.appendChild(horariosAld);
+        const opcionDia3 = document.createElement('option');
+        opcionDia3.value = 'domingos'
+        opcionDia3.text = 'Domingos'
+
+        diasSemana.appendChild(opcionDia0);
+        diasSemana.appendChild(opcionDia1);
+        diasSemana.appendChild(opcionDia2);
+        diasSemana.appendChild(opcionDia3);
+        
+        form2.appendChild(diasSemana);
+        body.appendChild(titulo3);
+        body.appendChild(diasSemana);
+
 
         horariosAld.addEventListener('click', function(){
           
@@ -98,25 +107,10 @@ form1.addEventListener('click', function(){
             opcionAld2.disabled = true;
           }
         })
-
-        
-
-        
-
-         
-          
+               
         opcion1.disabled = true;
-      
-          
       }
-        
     });
-
-      
-      
-    
   }
 
-    
-    
 });
