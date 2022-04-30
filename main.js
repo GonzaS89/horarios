@@ -123,6 +123,7 @@ form1.addEventListener('click', function(){
               if (horariosFloAldSM1.value == 'fASM1' && fASM1.disabled == false){
 
                 fASM1.disabled = true;
+                fASM1.selected = true;
                 fASM2.disabled = false;
 
                 mostrarDetalle.textContent = 'Trayecto: Fortin => Tres Luces => Alderetes => Talar => Banda del Río Salí';
