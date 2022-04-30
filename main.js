@@ -10,6 +10,8 @@ form1.addEventListener('click', function(){
 
     if(form1.value == 'florida' && florida.disabled == false){
 
+
+
     const form2 = document.createElement('form');
     const camino = document.createElement('select');
     camino.name = 'camino';
@@ -36,10 +38,10 @@ form1.addEventListener('click', function(){
     body.appendChild(titulo2)
     body.appendChild(form2);
 
-    form2.classList.add('contenedor')
+    form2.classList.add('contenedor');
 
     florida.disabled = true;
-    sanM.disabled = false;
+    
 
     camino.addEventListener('click', function(){
 
@@ -51,8 +53,6 @@ form1.addEventListener('click', function(){
 
         
         const diasSemana = document.createElement('select');
-
-        
         diasSemana.name = 'diasSemana';
         diasSemana.id = 'diasSemana';
 
@@ -90,6 +90,8 @@ form1.addEventListener('click', function(){
 
           if (diasSemana.value == 'lunesViernes' && opcionDia1.disabled == false){
 
+            opcionDia1.disabled = true;
+
             const horariosFloAldSM1 = document.createElement('select');
             horariosFloAldSM1.name = 'horariosFloAldSm1';
             horariosFloAldSM1.id = 'horariosFloAldSm1';
@@ -99,41 +101,63 @@ form1.addEventListener('click', function(){
             opcionHorario0.disabled = true;
             opcionHorario0.selected = true;
 
-            const horarioFASM1 = document.createElement('option');
+            const fASM1 = document.createElement('option');
+            fASM1.value = 'fASM1';
+            fASM1.text = '04:40 AM';
+
+            const fASM2 = document.createElement('option');
+            fASM2.value = 'fASM2';
+            fASM2.text = '05:35 AM';
+            
+
 
             body.appendChild(titulo4);
             horariosFloAldSM1.appendChild(opcionHorario0);
+            horariosFloAldSM1.appendChild(fASM1);
+            horariosFloAldSM1.appendChild(fASM2);
             body.appendChild(horariosFloAldSM1);
 
+            horariosFloAldSM1.addEventListener('click', function (){
+              let mostrarDetalle = document.createElement('h3');
+              
+              if (horariosFloAldSM1.value == 'fASM1' && fASM1.disabled == false){
+
+                fASM1.disabled = true;
+                fASM2.disabled = false;
+
+                mostrarDetalle.textContent = 'Trayecto: Fortin => Tres Luces => Alderetes => Talar => Banda del Río Salí';
+
+                body.appendChild(mostrarDetalle);
+
+                setTimeout( ()=> {
+                  mostrarDetalle.remove(),
+                  opcionHorario0.selected = true;
+                }, 5000);
+              }
+
+              if (horariosFloAldSM1.value == 'fASM2' && fASM2.disabled == false){
+
+                fASM2.disabled = true;
+                fASM1.disabled = false;
+
+                mostrarDetalle.textContent = 'Trayecto: Colonia 4 => La Cancha => Talar => Alternativa';
+
+                body.appendChild(mostrarDetalle);
+
+                setTimeout( ()=> {
+                  mostrarDetalle.remove(),
+                  opcionHorario0.selected = true;
+                }, 5000);
+              }
+
+            })
+
+            
+
 
           }
         })
-
-
-        horariosAld.addEventListener('click', function(){
-          
-          let mostrarHorario = document.createElement('h3');
-
-          if(horariosAld.value == 'opcionAld1' && opcionAld1.disabled == false){
-            mostrarHorario.textContent = `Servicio de las ${opcionAld1.text} 
-            Recorrido // Barrrio La Cancha - Cochuchal - San Miguel de Tucumán`
-
-            form2.appendChild(mostrarHorario);
-
-            opcionAld1.disabled = true;
-            opcionAld2.disabled = false;
-          }
-          if(horariosAld.value == 'opcionAld2' && opcionAld2.disabled == false){
-            mostrarHorario.textContent = `Servicio de las ${opcionAld2.text} 
-            Recorrido // Barrrio La Cancha - Autopista - San Miguel de Tucumán`
-
-            form2.appendChild(mostrarHorario);
-
-            opcionAld1.disabled = false;
-            opcionAld2.disabled = true;
-          }
-        })
-               
+                       
         opcion1.disabled = true;
       }
     });
